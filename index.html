@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		
+		.container{
+			width: 1000px;
+			margin: 200px auto;
+
+		}
+
+	/*清除浮动*/
+	.clearfix:after{
+		content:".";
+		display: block;
+		height: 0;
+		line-height: 0;
+		visibility: hidden;
+		clear:both;
+	}
+	/*左边容器样式*/
+		.left{
+			float:left;
+			width: 400px;
+			height: 500px;
+			box-sizing: border-box;
+			border: 1px solid #000;
+		}
+		.left .top{
+			width: 400px;
+			height: 440px;
+			box-sizing: border-box;
+			/*background-color: #CEF1F0;*/
+		}
+		.left .bottom{
+			width: 400px;
+			box-sizing: border-box;
+			height: 60px;
+			
+			border-top: 1px solid #000;
+			display: flex;
+
+		}
+		.left .bottom .bottomLeft{
+			height: 100%;
+			flex:1;
+			/*background-color: #E5EBD6;*/
+			box-sizing: border-box;
+			/*display:flex;*/
+		}
+		.left .bottom .bottomLeft img{
+			width: 100%;
+			height: 100%;
+		}
+
+		/*显示菜单项*/
+		.left .bottom .bottomRight{
+			height: 100%;
+			flex:4;
+			/*background-color: #B4A0A0;*/
+			box-sizing: border-box;
+			display:flex;		
+
+		}
+		.left .bottom .bottomRight .menuInfo1{
+			height: 100%;
+			flex: 1;
+			border-left: 1px solid #000;
+			text-align: center;
+			line-height: 60px;
+			/*background-color: #CAEEF2;*/
+		}
+	/*右边容器样式*/
+		.right{
+			float:right;
+			width: 500px;
+			/*border: 1px solid #000;*/
+			box-sizing: border-box;
+		}
+		.right .firstmenu{
+			position: relative;
+			display: flex;
+			padding: 0 5px;
+			width: 100%;
+			border: 1px solid #000;
+			box-sizing: border-box;
+			
+			border-radius: 5px;
+			margin-top: 10px;
+		}
+
+		/*一级菜单左边*/
+		.right .firstmenu .firstmenuLeft{
+			flex:1;
+		}
+
+		.right .firstmenu .firstmenuLeft .firsttitle{
+			/*position: relative;*/
+		}
+
+		/*左边一个一级菜单*/
+		.right .firstmenu .firstmenuLeft .firsttitle .content{
+			height: 30px;
+			line-height: 18px;
+			border-radius: 5px;
+			padding: 5px;
+			border: 1px solid #DDDDDD;
+			box-sizing: border-box;
+			position:relative;
+		}
+		
+		/*一级菜单内容栏悬浮*/
+		.right .firstmenu .firstmenuLeft .firsttitle .content:hover{
+			cursor: pointer;
+			border:1px solid #807B7B;
+		}
+
+		.right .firstmenu .firstmenuLeft .firsttitle .content .title{
+			float:left;
+		}
+		
+		.right .firstmenu .firstmenuLeft .firsttitle .content .modify{
+			float:right;
+			color:#DDDDDD;
+		}
+		
+		.right .firstmenu .firstmenuLeft .firsttitle .content .modify:hover{
+			color:#3388FF;
+		}
+
+
+
+		/*一级菜单弹出框---------------------弹出框-----------------------------*/
+		.right .firstmenu .firstmenuLeft .firsttitle .content .modifyModat{
+
+			position: absolute;
+			left:35%;
+			bottom:-50px;
+			width: 100%;
+			height: 50px;
+			z-index: 10;
+			/*background-color: red;*/
+		}
+		.right .firstmenu .firstmenuLeft .firsttitle .content .modifyModat .modat{
+			width: 100%;
+			height: 50px;
+			box-sizing: border-box;
+			/*background-color: #ccc;*/
+			position: relative;
+			
+		}
+		.right .firstmenu .firstmenuLeft .firsttitle .content .modifyModat .modat .triangle{
+			position: absolute;
+			top: 0;
+			left: 50%;
+			border-top: 10px solid transparent;
+			margin-top: -10px;
+	        border-right: 10px solid transparent;
+	        border-bottom: 10px solid red;
+	        border-left: 10px solid transparent;
+		}
+		.right .firstmenu .firstmenuLeft .firsttitle .content .modifyModat .modat .main{
+			position: absolute;
+			top: 10px;
+			left: 0px;
+			width: 100%;
+			height: 40px;
+			box-sizing: border-box;
+			padding: 2px;
+			line-height: 36px;
+			background-color: #ABADA6;
+		}
+		.right .firstmenu .firstmenuLeft .firsttitle .content .modifyModat .modat .main input{
+			width: 80px;
+		}
+
+
+		/*左边一个二级菜单*/
+		.right .firstmenu .firstmenuLeft .secondtitle .content{
+			height: 30px;
+			line-height: 18px;
+			border-radius: 5px;
+			padding: 5px;
+			border: 1px solid #DDDDDD;
+			box-sizing: border-box;
+			margin-top:5px;
+			position: relative;
+		}
+		
+		.right .firstmenu .firstmenuLeft .secondtitle .content:hover{
+			cursor: pointer;
+			border:1px solid #807B7B;
+		}
+
+		.right .firstmenu .firstmenuLeft .secondtitle .content .title{
+			float:left;
+		}
+		.right .firstmenu .firstmenuLeft .secondtitle .content .delete{
+
+			float:right;
+		}
+		
+		/*颜色悬浮变色*/
+		.right .firstmenu .firstmenuLeft .secondtitle .content .delete:hover{
+			color:#3388FF;
+		}
+		.right .firstmenu .firstmenuLeft .secondtitle .content .modify{
+			margin-right: 5px;
+			float:right;
+		}
+
+		.right .firstmenu .firstmenuLeft .secondtitle .content .modify:hover{
+			color:#3388FF;
+		}
+
+
+		/*二级编辑菜单弹出框-------22222222弹出框-----------------------------*/
+		.right .firstmenu .firstmenuLeft .secondtitle .content .modifyModat{
+
+			position: absolute;
+			left:15%;
+			bottom:-50px;
+			width: 100%;
+			height: 50px;
+			z-index:10;
+			/*background-color: red;*/
+		}
+		.right .firstmenu .firstmenuLeft .secondtitle .content .modifyModat .modat{
+			width: 100%;
+			height: 50px;
+			box-sizing: border-box;
+			/*background-color: #ccc;*/
+			position: relative;
+			
+		}
+		.right .firstmenu .firstmenuLeft .secondtitle .content .modifyModat .modat .triangle{
+			position: absolute;
+			top: 0;
+			left: 50%;
+			border-top: 10px solid transparent;
+			margin-top: -10px;
+	        border-right: 10px solid transparent;
+	        border-bottom: 10px solid red;
+	        border-left: 10px solid transparent;
+		}
+		.right .firstmenu .firstmenuLeft .secondtitle .content .modifyModat .modat .main{
+			position: absolute;
+			top: 10px;
+			left: 0px;
+			width: 100%;
+			height: 40px;
+			box-sizing: border-box;
+			padding: 2px;
+			line-height: 36px;
+			background-color: #ABADA6;
+		}
+		.right .firstmenu .firstmenuLeft .secondtitle .content .modifyModat .modat .main input{
+			width: 80px;
+		}
+
+		/*二级删除菜单弹出框-------22222222弹出框--------删除-------------------*/
+		.right .firstmenu .firstmenuLeft .secondtitle .content .removeModat{
+
+			position: absolute;
+			left:50%;
+			bottom:-50px;
+			width: 100%;
+			height: 50px;
+			z-index:10;
+			/*background-color: red;*/
+		}
+		.right .firstmenu .firstmenuLeft .secondtitle .content .removeModat .modat{
+			width: 100%;
+			height: 50px;
+			box-sizing: border-box;
+			/*background-color: #ccc;*/
+			position: relative;
+			
+		}
+		.right .firstmenu .firstmenuLeft .secondtitle .content .removeModat .modat .triangle{
+			position: absolute;
+			top: 0;
+			left: 35%;
+			border-top: 10px solid transparent;
+			margin-top: -10px;
+	        border-right: 10px solid transparent;
+	        border-bottom: 10px solid red;
+	        border-left: 10px solid transparent;
+		}
+		.right .firstmenu .firstmenuLeft .secondtitle .content .removeModat .modat .main{
+			position: absolute;
+			top: 10px;
+			left: 0px;
+			width: 100%;
+			height: 40px;
+			box-sizing: border-box;
+			padding: 2px;
+			line-height: 36px;
+			background-color: #ABADA6;
+		}
+		.right .firstmenu .firstmenuLeft .secondtitle .content .removeModat .modat .main output{
+			padding: 2px;
+			display:inline-block;
+			height: 21px;
+			box-sizing: border-box;
+			line-height: 21px;
+			font-size: 12px;
+			width: 80px;
+		}
+
+		
+		/*添加二级菜单*/
+		.right .firstmenu .firstmenuLeft .secondtitle .addSecondMenu{
+			margin-top: 20px;
+			margin-bottom: 20px;
+			box-sizing: border-box;
+			/*background-color: #ccc;*/
+			width: 60%;
+			height: 40px;
+			text-align: center;
+			border: 1px solid #DDDDDD;
+			line-height: 40px;
+
+		}
+		/*二级菜单鼠标变小手*/
+		.right .firstmenu .firstmenuLeft .secondtitle .addSecondMenu:hover{
+			cursor: pointer;
+			border:1px solid #807B7B;
+		}
+		
+
+		/*-----------------------------右边选择urlurlurlurlurlurlurlurl----------------------------------*/
+		/*一级菜单右边*/
+		.right .firstmenu .firstmenuRight{		
+			flex:1;
+			padding: 10px;
+		}
+		
+		/*一级菜单选择框*/
+		.right .firstmenu .firstmenuRight .firstOption{
+			width: 100%;
+			height: 40px;
+			box-sizing: border-box;
+			/*margin-top: 4px;*/
+			background-color: #C6A7A7;
+			
+		}
+
+		.right .firstmenu .firstmenuRight .firstOption .option{
+				
+			width: 100%;
+			height: 40px;
+			box-sizing: border-box;
+			display: flex;
+
+
+		}
+		
+		.right .firstmenu .firstmenuRight .firstOption .option .text{
+			flex:1;
+			/*width: 100%;*/
+			height: 40px;
+			box-sizing: border-box;
+			line-height: 40px;
+		}
+		.right .firstmenu .firstmenuRight .firstOption .option .selectedUrl{
+			flex:1;
+			/*width: 100%;*/
+			height: 40px;
+			box-sizing: border-box;
+
+			/*padding-left:80px;*/
+		}
+		.right .firstmenu .firstmenuRight .firstOption .option .selectedUrl select{
+			margin-top: 10px;
+			width: 	80px;
+			height: 15px;
+		}
+
+		/*二级菜单选择框*/
+		.right .firstmenu .firstmenuRight .secondOption{
+				
+
+		}
+
+
+		.right .firstmenu .firstmenuRight .secondOption .option{
+
+			width: 100%;
+			height: 40px;
+			box-sizing: border-box;
+			margin-top: 5px;
+			/*background-color: #ccc;*/
+		}
+		.right .firstmenu .firstmenuRight .secondOption .option .text{
+			margin: 0 auto;
+			width: 100%;
+			height: 20px;
+			box-sizing: border-box;
+
+		}
+		.right .firstmenu .firstmenuRight .secondOption .option .selectedUrl{
+			padding-left: 10px; 
+			width: 100%;
+			height: 20px;
+			box-sizing: border-box;
+		}
+	
+		/*------------------------一级菜单删除图标-------------------------*/
+		.right .firstmenu .firstRemoveImg{
+			top: 0;
+			right: 0;
+			position: absolute;
+			margin-top: -20px;
+			margin-right: -20px;
+			width: 40px;
+			height: 40px;
+			opacity: 0.2;
+		}
+		.right .firstmenu .firstRemoveImg:hover{
+			opacity: 1;
+			cursor: pointer;
+		}
+		/*=--------------------一级删除菜单弹出栏------------------------*/
+		.right .firstmenu .remove1Modat{
+			position: absolute;
+
+			left:80%;
+			top:10px;
+			width: 50%;
+			height: 50px;
+			z-index:10;
+		}
+
+		.right .firstmenu .remove1Modat .modat{
+			width: 100%;
+			height: 50px;
+			box-sizing: border-box;
+			/*background-color: #ccc;*/
+			position: relative;
+			
+		}
+		.right .firstmenu .remove1Modat .modat .triangle{
+			position: absolute;
+			top: 0;
+			left: 35%;
+			border-top: 10px solid transparent;
+			margin-top: -10px;
+	        border-right: 10px solid transparent;
+	        border-bottom: 10px solid red;
+	        border-left: 10px solid transparent;
+		}
+		.right .firstmenu .remove1Modat .modat .main{
+			position: absolute;
+			top: 10px;
+			left: 0px;
+			width: 100%;
+			height: 40px;
+			box-sizing: border-box;
+			padding: 2px;
+			line-height: 36px;
+			background-color: #ABADA6;
+		}
+		.right .firstmenu .remove1Modat .modat .main output{
+			padding: 2px;
+			display:inline-block;
+			height: 21px;
+			box-sizing: border-box;
+			line-height: 21px;
+			font-size: 12px;
+			width: 80px;
+		}
+
+
+		/*添加一级菜单*/
+		.right .addFirstMenu{
+			margin-top: 20px;
+			box-sizing: border-box;
+			width: 60%;
+			height: 40px;
+			text-align: center;
+			border: 1px solid #DDDDDD;
+			line-height: 40px;
+		}
+		
+		/*一级菜单悬浮变小手*/
+		.right .addFirstMenu:hover{
+			cursor: pointer;
+			border:1px solid #807B7B;
+		}
+		
+		.right .submit {
+			margin-top: 10px;
+			display: block;
+		}
+	</style>
+	<script type="text/javascript" src="./js/hprose.js"></script>
+	<script type="text/javascript" src="./js/vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<div class="container clearfix">
+
+		<!-- 左边容器 -->
+			<div class="left">
+				<div class="top">
+				</div>
+				<div class="bottom">
+					<div class="bottomLeft">
+						<img src="./images/键盘.svg">
+					</div>
+					<div class="bottomRight">
+						<!-- 一级菜单 -->
+						<div class="menuInfo1" v-for='(val,key) in modifyButton'>
+							{{val['name']}}
+						</div>
+
+					</div>
+				</div>
+			</div>
+		<!-- 右边容器 -->
+			<div class="right">
+				
+				
+				<div class="showmenus">
+
+				<!-- 一个模板 循环一级菜单-->
+					<div class="firstmenu" v-for="(value1,key1) in modifyButton">
+
+						<!-- 一级菜单左边 -->
+						<div class="firstmenuLeft">
+							<div class="firsttitle">
+
+								<div class="text">一级菜单:</div>
+								<div class="content clearfix">
+
+									<div class="title">{{value1.name}}</div>
+									<div class="modify" @click="firstModify(key1)">编辑</div>
+										
+									<!-- 1级编辑弹出框 11111111111111111111111111-->
+									<div class="modifyModat" v-show="firstModifyFlagArr[key1].flag" >
+										<!-- 模态框 -->
+										<div class="modat">
+											<div class="triangle">
+											</div>
+											<div class="main">
+												<input type="text" value="标题" v-model="value1.name">
+												<button @click="firstModifyConfirm(key1)">确定</button>
+												<button @click="firstModifyCancel(key1)">取消</button>
+											</div>	
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+							<div class="secondtitle">
+								<div class="text">二级菜单:</div>
+								
+
+								<!-- 循环的二级菜单 -->
+								<div class="content clearfix" v-for="(value2,key2) in value1.sub_button">
+
+									<div class="title">{{value2.name}}</div>
+									<div class="delete" @click="secondRemove(key1,key2)">删除</div>
+									<!-- <div class="modify" @click="secondModify(key1,key2)">编辑</div> -->
+									
+									<!-- 2级编辑弹出框 2222222222222222222222-->
+									<div class="modifyModat" v-show="firstModifyFlagArr[key1].secondModifyFlagArr[key2].flag">
+										<!-- 模态框 -->
+										<div class="modat">
+											<div class="triangle">
+											</div>
+											<div class="main">
+												<input type="text" value="标题" v-model="value1.sub_button[key2].name">
+												<button @click="secondModifyConfirm(key1,key2)">确定</button>
+												<button @click="secondModifyCancel(key1,key2)">取消</button>
+											</div>	
+										</div>						
+									</div>
+
+									<!-- 2级删除弹出框 2222222222222222222222firstModifyFlagArr[key1].secondModifyFlagArr[key2].flag-->
+									<div class="removeModat" v-show="firstRemoveFlagArr[key1].secondRemoveFlagArr[key2].flag">
+										<!-- 模态框 -->
+										<div class="modat">
+											<div class="triangle">
+											</div>
+											<div class="main">
+												<output>确定删除吗?</output>
+												<button @click="secondRemoveConfirm(key1,key2)">确定</button>
+												<button @click="secondRemoveCancel(key1,key2)">取消</button>
+											</div>	
+										</div>						
+									</div>
+
+								</div>
+
+								<!-- 添加一个二级菜单-->
+								<div class="addSecondMenu" @click="addSecondMenu(key1,value1)">
+									添加二级菜单
+								</div>
+							</div>
+							
+							
+
+						</div>
+
+						<!-- 一级菜单右边 -->
+						<div class="firstmenuRight" >
+
+							<div class="firstOption">
+								<div class="option" v-if="modifyButton[key1].sub_button.length <= 0">
+									<div class="text">
+										选择展示:
+									</div>
+
+									<!-- 一级url展示 -->
+									<div class="selectedUrl">
+										<select v-model="modifyButton[key1].name" >
+												  <!-- <option>商品综合分析</option>
+												  <option selected="selected">零售小票分析</option>
+												  <option>进销存储蓄分析</option>
+												  <option>统计分析</option> -->
+
+												  <option v-for="report in firstReportsinfo">{{report.name}}</option>
+										</select>
+									</div>								
+								</div>
+							</div>
+
+							<div class="secondOption">
+								<div class="option" v-for="(value2,key2) in value1.sub_button">
+									<div class="text">
+										选择展示:
+									</div>
+									<!-- 二级url展示 -->
+									<div class="selectedUrl">
+										<select v-model="modifyButton[key1].sub_button[key2].name">
+											<option v-for="report in secondReportsinfo">{{report.name}}</option>
+										</select>
+										 	<span>{{modifyButton[key1].sub_button[key2].name}}</span>
+									</div>				
+								</div>
+							</div>
+						</div>
+
+						<!-- 一级菜单删除 -->
+						<img src="./images/取消.svg" class="firstRemoveImg" @click="firstRemove(key1)">
+
+						<!-- 一级删除弹出框 1111111111111111111111111111111111111111111111111111firstRemoveFlagArr[key1].secondRemoveFlagArr[key2].flag-->
+						<div class="remove1Modat" v-show="firstRemoveFlagArr[key1].flag">
+							<!-- 模态框 -->
+							<div class="modat">
+								<div class="triangle">
+								</div>
+								<div class="main">
+									<output>确定删除吗?</output>
+									<button @click="firstRemoveConfirm(key1)">确定</button>
+									<button @click="firstRemoveCancel(key1)">取消</button>
+								</div>	
+							</div>						
+						</div>
+
+					</div>
+
+					<!-- 添加一级菜单 -->
+					<div class="addFirstMenu" @click="addFirstMenu()">
+						添加一级菜单
+					</div>
+					
+					<!-- 确认提交 -->
+					<button class="submit" @click="submit()">确认提交</button>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+<script type="text/javascript">
+var app = new Vue({
+	el: '#app',
+	data: {
+		firstReportsinfo: [{"name":"1vue","url":"https://cn.vuejs.org/"},{"name":"1github","url":"https://github.com/"}],
+		secondReportsinfo: [
+			{"name":"2百度一下","url":"https://www.baidu.com/"},
+			{"name":"2京东","url":"https://www.jd.com/"},
+			{"name":"2淘宝","url":"https://www.taobao.com/"},
+		],
+		originButton:[
+			      { 
+			          "type":"view",
+			          "name":"首页",
+			          "url":"shouye",
+			          "sub_button":[]
+			      },
+			      {
+			           "name":"主体",
+			           "sub_button":[
+			           {    
+			               "type":"view",
+			               "name":"xxx",
+			               "url":"http://www.soso.com/"
+			            },
+			            {
+			                 "type":"view",
+			                 "name":"xxx",
+			                 "url":"xxx",
+			             },
+			           ]
+			      }
+			      // {
+			      //      "name":"尾巴",
+			      //      "sub_button":[
+			      //      {    
+			      //          "type":"view",
+			      //          "name":"xxx",
+			      //          "url":"http://www.soso.com/"
+			      //       },
+			      //       {
+			      //            "type":"view",
+			      //            "name":"xxx",
+			      //            "url":"xxx",
+			      //        },
+			      //      ]
+			      // }
+		],
+		modifyButton:[],
+		submitButton:[],
+		submitFlag:false,
+		firstModifyFlagArr:[
+
+			{
+				"flag":false,
+				"secondModifyFlagArr":[
+
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+
+				]
+			},
+			{
+				"flag":false,
+				"secondModifyFlagArr":[
+
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+				]
+			},
+			{
+				"flag":false,
+				"secondModifyFlagArr":[
+
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+				]
+			},
+			{
+				"flag":false,
+				"secondModifyFlagArr":[
+
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+				]
+			}
+
+		],
+		firstRemoveFlagArr:[
+
+			{
+				"flag":false,
+				"secondRemoveFlagArr":[
+
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+				]
+			},
+			{
+				"flag":false,
+				"secondRemoveFlagArr":[
+
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+				]
+			},
+			{
+				"flag":false,
+				"secondRemoveFlagArr":[
+
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+				]
+			},
+			{
+				"flag":false,
+				"secondModifyFlagArr":[
+
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+					{"flag":false},
+				]
+			}
+
+		]
+	},
+	mounted:function(argument) {
+		
+		// 将原始菜单栏数据复制给待修改的菜单栏数据
+		this.modifyButton = this.originButton;
+	},
+
+	methods:{
+
+		firstModify:function (key1) {
+
+			//删除的所有flag都要值false
+			for(var k1 in this.firstModifyFlagArr){
+				
+				this.firstRemoveFlagArr[k1].flag =false;
+				for(var k2 in this.firstRemoveFlagArr[k1].secondRemoveFlagArr){	
+					this.firstRemoveFlagArr[k1].secondRemoveFlagArr[k2].flag = false;
+				}
+			}
+
+			// 只有点击1级编辑弹出框会出现
+			for(var k1 in this.firstModifyFlagArr){
+				if (k1 == key1) {
+					this.firstModifyFlagArr[k1].flag =true;
+				}else{
+					this.firstModifyFlagArr[k1].flag =false;
+				}
+				for(var k2 in this.firstModifyFlagArr[k1].secondModifyFlagArr){
+					this.firstModifyFlagArr[k1].secondModifyFlagArr[k2].flag = false;
+				}
+			}
+		},
+		firstModifyConfirm:function (key1){
+			this.firstModifyFlagArr[key1].flag =false;
+		},
+		firstModifyCancel:function(key1){
+			this.firstModifyFlagArr[key1].flag =false;
+		},
+
+
+		secondModify:function (key1,key2) {
+			
+			//删除的所有flag都要值false
+			for(var k1 in this.firstModifyFlagArr){
+				
+				this.firstRemoveFlagArr[k1].flag =false;
+				for(var k2 in this.firstRemoveFlagArr[k1].secondRemoveFlagArr){	
+					this.firstRemoveFlagArr[k1].secondRemoveFlagArr[k2].flag = false;
+				}
+			}
+
+
+			// 只有点击二级编辑相应的二级弹出框采出现
+			for(var k1 in this.firstModifyFlagArr){
+				
+				this.firstModifyFlagArr[k1].flag =false;
+				for(var k2 in this.firstModifyFlagArr[k1].secondModifyFlagArr){
+					
+					if( (k1 == key1) && (k2 == key2)){
+						this.firstModifyFlagArr[k1].secondModifyFlagArr[k2].flag = true;
+					}else{
+						this.firstModifyFlagArr[k1].secondModifyFlagArr[k2].flag = false;
+					}
+				}
+			}
+
+		},
+		secondModifyConfirm:function(key1,key2){
+			this.firstModifyFlagArr[key1].secondModifyFlagArr[key2].flag = false;
+		},	
+		secondModifyCancel:function(key1,key2){
+			this.firstModifyFlagArr[key1].secondModifyFlagArr[key2].flag = false;
+		},
+
+
+		firstRemove:function(key1) {
+			// 点击一级删除
+			// 编辑的flag全部都要false
+			for(var k1 in this.firstModifyFlagArr){
+				this.firstModifyFlagArr[k1].flag =false;
+				for(var k2 in this.firstModifyFlagArr[k1].secondModifyFlagArr){
+					this.firstModifyFlagArr[k1].secondModifyFlagArr[k2].flag = false;
+				}
+			}
+
+			// 只有点击一级删除相应的一级弹出框采出现
+			for(var k1 in this.firstModifyFlagArr){
+				
+				
+				if (k1 == key1) {
+					this.firstRemoveFlagArr[k1].flag =true;
+				}
+				else{
+					this.firstRemoveFlagArr[k1].flag =false;
+				}
+
+				// 所有二级的删除也置0;
+				for(var k2 in this.firstRemoveFlagArr[k1].secondRemoveFlagArr){
+					
+					this.firstRemoveFlagArr[k1].secondRemoveFlagArr[k2].flag = false;
+
+				}
+			}
+		},
+		firstRemoveConfirm:function(key1) {
+			// 一级删除 确认按钮
+			this.firstRemoveFlagArr[key1].flag = false;
+
+			// 删除数组一级菜单中数据
+			this.modifyButton.splice(key1,1)
+		},
+		firstRemoveCancel:function(key1) {
+			// 一级删除 取消按钮
+			this.firstRemoveFlagArr[key1].flag = false;
+		},
+
+		
+		secondRemove:function(key1,key2) {
+			// 点击二级删除
+			// 编辑的flag全部都要false
+			for(var k1 in this.firstModifyFlagArr){
+				this.firstModifyFlagArr[k1].flag =false;
+				for(var k2 in this.firstModifyFlagArr[k1].secondModifyFlagArr){
+					this.firstModifyFlagArr[k1].secondModifyFlagArr[k2].flag = false;
+				}
+			}
+
+			// 只有点击二级删除相应的二级弹出框采出现
+			for(var k1 in this.firstModifyFlagArr){
+				
+				// 所有一级flag置0
+				this.firstRemoveFlagArr[k1].flag =false;
+				for(var k2 in this.firstRemoveFlagArr[k1].secondRemoveFlagArr){
+					
+					// 只打开它的二级flag
+					if( (k1 == key1) && (k2 == key2)){
+						this.firstRemoveFlagArr[k1].secondRemoveFlagArr[k2].flag = true;
+					}else{
+						this.firstRemoveFlagArr[k1].secondRemoveFlagArr[k2].flag = false;
+					}
+				}
+			}
+		},
+		secondRemoveConfirm:function(key1,key2){
+			// 二级删除 确认按钮
+			this.firstRemoveFlagArr[key1].secondRemoveFlagArr[key2].flag = false;
+
+			// // 删除数组一级菜单中的二级数据
+			this.modifyButton[key1].sub_button.splice(key2,1)
+
+		},
+		secondRemoveCancel:function(key1,key2){
+			// 二级删除 取消按钮
+			this.firstRemoveFlagArr[key1].secondRemoveFlagArr[key2].flag = false;
+
+		},
+
+
+		addFirstMenu:function() {
+
+
+			if (this.modifyButton.length <3) {
+
+				this.modifyButton.push({"name":"","sub_button":[],"type":"","url":""})
+
+			} else{
+				alert("最多添加3个一级菜单")
+			}
+			
+			console.log("新建了一级菜单",this.modifyButton)
+
+		},
+
+		addSecondMenu:function(key1,value1) {
+			
+			console.log("我是一级菜单下的二级菜单",key1,value1)
+			if (this.modifyButton[key1].sub_button.length <7) {
+
+				console.log(this.modifyButton[key1].sub_button)
+				this.modifyButton[key1].sub_button.push({"name":"","url":""})
+				console .log(this.modifyButton)
+			} else{
+				alert("最多添加7个二级菜单")
+			}
+			
+
+
+		},
+		submit:function(argument) {
+
+			if (this.submitFlag == false) {
+
+				
+				// 定义提交的格式对象
+
+				for(var k in this.modifyButton){
+					this.submitButton[k] = this.modifyButton[k] 
+				}
+
+				for (var i = 0; i < this.submitButton.length; i++) {
+
+					// 如果没有二级菜单
+					if (this.submitButton[i].sub_button.length ==0 ) {
+						delete this.submitButton[i].sub_button;
+						this.submitButton[i].type = "view";
+
+						// 将name相应的url变成 firstReportsinfo 报表url
+						for (var i1 = 0; i1 < this.firstReportsinfo.length; i1++) {
+								
+							if (this.submitButton[i].name == this.firstReportsinfo[i1].name) {
+
+									this.submitButton[i].url = this.firstReportsinfo[i1].url;
+
+							}
+
+						}
+					}
+					else {
+
+						// 如果有二级菜单,删除一级菜单的属性
+						delete this.submitButton[i].type;
+						delete this.submitButton[i].url;
+
+						for (var j = 0; j < this.submitButton[i].sub_button.length; j++) {
+
+							// 给二级菜单添加type属性
+							this.submitButton[i].sub_button[j].type = "view"
+
+							// 将name相应的url变成 secondReportsinfo 报表url
+							for (var i2 = 0; i2 < this.secondReportsinfo.length; i2++) {
+								
+								if (this.submitButton[i].sub_button[j].name == this.secondReportsinfo[i2].name) {
+
+										this.submitButton[i].sub_button[j].url = this.secondReportsinfo[i2].url;
+
+								}
+
+							}
+
+
+						}
+					}
+				}
+
+
+				// 发送数据至后台
+				// ================获取菜单列表=================
+				var button = {
+					"button": this.submitButton
+				}
+				button = JSON.stringify(button);
+				    var custcert = '9a8d50c75897bb5ac72733cfbf8e46cb';
+				    var userinfo_json = { "usercode": "dc500" };
+				    var userinfo = JSON.stringify(userinfo_json);
+
+				    var testUrl = 'http://app.9isoft.com/upyuan/app/server.php';
+				    var client = hprose.Client.create(testUrl, ["weixin_set_menus"]);
+
+				    client.weixin_set_menus(custcert, userinfo,button)
+				        .then(function(result) {
+				            var res = JSON.parse(result);
+				            console.log(res);
+				            // console.log('成功')
+				            // sucFun(res.body);
+				        }, function(err) {
+				            console.log(err);
+				            console.log('获取菜单列表失败')
+				        });
+
+
+				this.submitFlag = true;
+
+				console.log(hprose)
+			}
+			else {
+				alert("你已经提交过了,若想重新更改请刷新页面")
+			}
+		}
+
+
+
+
+
+	}
+
+
+
+})
+</script>
